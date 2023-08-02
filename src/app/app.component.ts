@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,10 +12,15 @@ export class AppComponent {
   answerOutput: string = '';
   pool:string = '';
   includeNumbers = false;
+  buttonDisabled = true;
 ;
   onKey(event: any){
     let input = event.target.value
     this.userInput = event.target.value
+    if (this.pool != "" || this.userInput === null || this.userInput === 0){
+      console.log(this.pool)
+    this.buttonDisabled = false
+    }
   }
 
   letterChecked(event: any){
@@ -22,6 +28,8 @@ export class AppComponent {
       if (event.target.checked == true) {
         this.pool += letters
       }
+      else
+        this.pool.replace('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', '')
     }
 
   numberChecked(event: any){

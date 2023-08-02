@@ -4,10 +4,8 @@
   </div>
 
   <div class="first-section">
-    <p>Length</p>
+    <label for="input">Please Enter Length: &nbsp;</label>
     <input class="input" placeholder="Enter Number" (keyup)="onKey($event)">
-    <p>{{userInput}}</p>
-
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change) = "letterChecked($event)">
       <label class="form-check-label" for="flexCheckDefault">
@@ -26,11 +24,12 @@
         Use Symbols
       </label>
     </div>
-    <button class="btn btn-primary" (click)="onClick(userInput)">Generate</button>
   </div>
+  <button  [disabled]="buttonDisabled" (click)="onClick(userInput)">Generate</button>
 
   <div class="second-section">
-    <p>Your Password</p>
+    <label for="text">Your Random Password: &nbsp;</label>
     <input type="text" class="input" value = {{answerOutput}}>
   </div>
+
 </div>
